@@ -1,0 +1,30 @@
+[
+  {
+    "title": "crew member (key-holder)",
+    "company": "batch'd",
+    "date": "nov 2025 - ongoing",
+    "description": "managed store opening and closing procedures, handled product deliveries, maintained stock levels through frequent ordering, and upheld strict food safety standards including l2 food safety qualification.",
+    "featured": false
+  },
+  {
+    "title": "field applications engineer (intern)",
+    "company": "etas ltd.",
+    "date": "sep 2024 - sep 2025",
+    "description": "responsible for delivering swift and accurate technical support to customers, investigating complex product and implementation issues while meeting slas. authored technical documentation, led internal tool training sessions, and completed professional training covering gdpr, copyright law, and product systems.",
+    "featured": true
+  },
+  {
+    "title": "crew member",
+    "company": "five guys",
+    "date": "oct 2023 - aug 2024",
+    "description": "prepared fresh ingredients, maintained cleanliness across stations, delivered high-quality customer service, and operated efficiently in a fast-paced environment while adhering to food safety standards.",
+    "featured": false
+  },
+  {
+    "title": "games master",
+    "company": "the piccadilly",
+    "date": "jul 2022 - oct 2022",
+    "description": "independently operated an escape room experience, managing bookings, payments, customer satisfaction, safety oversight, and facility maintenance. developed strong multitasking, communication, and problem-solving skills.",
+    "featured": false
+  }
+]

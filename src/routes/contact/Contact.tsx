@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Contact() {
+
+  useEffect(() => {
+    document.title = "Contact Konrad";
+    window.scrollTo(0, 0);
+  }, []);
+
   const [form, setForm] = useState({
     name: "",
     email: "",

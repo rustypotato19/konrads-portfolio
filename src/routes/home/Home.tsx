@@ -1,4 +1,12 @@
+import { useEffect } from "react";
+
 export default function Home() {
+
+  useEffect(() => {
+    document.title = "Konrad's Portfolio";
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen w-full bg-linear-to-b from-black via-[#020f05] to-[#001a0a] text-green-200">
       {/* container */}

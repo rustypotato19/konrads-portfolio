@@ -18,6 +18,12 @@ function preloadImage(
 }
 
 export default function NotFound() {
+
+  useEffect(() => {
+    document.title = "Uh oh, 404!";
+    window.scrollTo(0, 0);
+  }, []);
+
   const [dogImageUrl, setDogImageUrl] = useState<string>("");
   const [status, setStatus] = useState<Status>("idle");
   const [attempts, setAttempts] = useState<number>(0);

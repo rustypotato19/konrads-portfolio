@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import projectsData from "./Projects.json";
 
 type Project = {
@@ -10,6 +11,12 @@ type Project = {
 };
 
 export default function Projects() {
+
+  useEffect(() => {
+    document.title = "Konrad's Projects";
+    window.scrollTo(0, 0);
+  }, []);
+
   const featured = projectsData.filter((p: Project) => p.featured);
   const others = projectsData.filter((p: Project) => !p.featured);
 

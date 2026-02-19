@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import experienceData from "./CV.json";
 
 type ExperienceItem = {
@@ -9,6 +10,12 @@ type ExperienceItem = {
 };
 
 export default function CV() {
+
+  useEffect(() => {
+    document.title = "Konrad's CV";
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen w-full bg-linear-to-b from-black via-[#020f05] to-[#001a0a] text-green-200">
       <a

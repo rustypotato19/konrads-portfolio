@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 type Status = "idle" | "loading" | "ready" | "error";
 
-const DOG_API = "https://dog.ceo/api/breeds/image/random";
+const CAT_API = "https://api.thecatapi.com/v1/images/search";
 const MAX_ATTEMPTS = 10;
 
 function preloadImage(
@@ -18,18 +18,17 @@ function preloadImage(
 }
 
 export default function NotFound() {
-
   useEffect(() => {
     document.title = "Uh oh, 404!";
     window.scrollTo(0, 0);
   }, []);
 
-  const [dogImageUrl, setDogImageUrl] = useState<string>("");
+  const [catImageUrl, setCatImageUrl] = useState<string>("");
   const [status, setStatus] = useState<Status>("idle");
   const [attempts, setAttempts] = useState<number>(0);
   const [error, setError] = useState<string>("");
 
-  async function fetchLandscapeDog() {
+  async function fetchLandscapeCat() {
     setStatus("loading");
     setError("");
     setAttempts(0);
@@ -38,14 +37,16 @@ export default function NotFound() {
       setAttempts(i);
 
       try {
-        const res = await fetch(DOG_API, { cache: "no-store" });
+        const res = await fetch(CAT_API, { cache: "no-store" });
         if (!res.ok) throw new Error(`API error: ${res.status}`);
         const data = await res.json();
 
-        const { url, w, h } = await preloadImage(data.message);
+        // Cat API returns an array
+        const image = data[0];
+        const { url, w, h } = await preloadImage(image.url);
 
         if (w >= h) {
-          setDogImageUrl(url);
+          setCatImageUrl(url);
           setStatus("ready");
           return;
         }
@@ -53,9 +54,9 @@ export default function NotFound() {
         if (i === MAX_ATTEMPTS) {
           setStatus("error");
           setError(
-            "Couldn't fetch a landscape dog image right now. Try again.",
+            "Couldn't fetch a landscape cat image right now. Try again.",
           );
-          console.log("Error fetching dog image:", e);
+          console.log("Error fetching cat image:", e);
           return;
         }
       }
@@ -66,7 +67,7 @@ export default function NotFound() {
   }
 
   useEffect(() => {
-    fetchLandscapeDog();
+    fetchLandscapeCat();
   }, []);
 
   return (
@@ -81,9 +82,7 @@ export default function NotFound() {
             <p className="mt-1 text-green-300/80">
               I could not find the page you were looking for...
               <br />
-              but I found a <strong className="text-green-400">
-                pupper
-              </strong>{" "}
+              but I found a <strong className="text-green-400">cat</strong>{" "}
               instead!
             </p>
           </div>
@@ -94,16 +93,16 @@ export default function NotFound() {
                 Searching… ({attempts}/{MAX_ATTEMPTS})
               </span>
             ) : (
-              <span>source: dog.ceo</span>
+              <span>source: thecatapi.com</span>
             )}
           </div>
         </div>
 
         <div className="mt-6 overflow-hidden rounded-xl border border-green-500/20 bg-black">
-          {dogImageUrl ? (
+          {catImageUrl ? (
             <img
-              src={dogImageUrl}
-              alt="Random dog"
+              src={catImageUrl}
+              alt="Random cat"
               className="block w-full h-72 sm:h-80 border-2 rounded-xl border-green-500/40 object-top"
               loading="eager"
               referrerPolicy="no-referrer"
@@ -113,7 +112,7 @@ export default function NotFound() {
               <div className="flex items-center gap-3 text-green-300">
                 <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-green-900 border-t-green-400" />
                 <span>
-                  {status === "error" ? "No dog today 😭" : "Loading dog…"}
+                  {status === "error" ? "No cat today 😿" : "Loading cat…"}
                 </span>
               </div>
             </div>
@@ -130,7 +129,7 @@ export default function NotFound() {
 
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
           <button
-            onClick={fetchLandscapeDog}
+            onClick={fetchLandscapeCat}
             disabled={status === "loading"}
             className="inline-flex items-center justify-center rounded-xl 
                        bg-green-500 px-4 py-2.5 font-semibold text-black
@@ -139,7 +138,7 @@ export default function NotFound() {
                        hover:shadow-green-400/50
                        disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
-            {status === "loading" ? "Fetching…" : "Fetch new dog"}
+            {status === "loading" ? "Fetching…" : "Fetch new cat"}
           </button>
 
           <a

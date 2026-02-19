@@ -7,13 +7,15 @@ export default function Home() {
     window.scrollTo(0, 0);
   }, []);
 
+  const windowWidth = window.innerWidth;
+
   return (
     <div className="min-h-screen w-full bg-linear-to-b from-black via-[#020f05] to-[#001a0a] text-green-200">
       {/* container */}
       <div className="max-w-5xl mx-auto px-6 py-24">
         {/* site title */}
         <header className="mb-20">
-          <h1 className="text-5xl sm:text-6xl font-semibold tracking-tight text-green-400 lowercase">
+          <h1 className={`${windowWidth > 400 ? "text-5xl" : "text-3xl"} sm:text-6xl font-semibold tracking-tight text-green-400 lowercase`}>
             aboutkonrad<span className="text-green-600">.com</span>
           </h1>
 

@@ -3,7 +3,7 @@
     "title": "full-stack portfolio website",
     "description": "modern personal website built with react, typescript and tailwind, deployed with nginx and reverse proxy setup.",
     "stack": ["react", "typescript", "tailwind", "nginx"],
-    "github": "https://github.com/rustypotato19/",
+    "github": "https://github.com/rustypotato19/konrads-portfolio",
     "live": "https://aboutkonrad.com",
     "featured": true
   },
@@ -11,7 +11,7 @@
     "title": "custom exponential number class",
     "description": "C++ class for representing and performing arithmetic on numbers in exponential form, designed to handle extremely large numbers.",
     "stack": ["C++", "numerical methods"],
-    "github": "",
+    "github": "https://github.com/rustypotato19/ExponentialNumberCpp",
     "live": "",
     "featured": true
   }

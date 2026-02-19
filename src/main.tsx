@@ -8,6 +8,7 @@ import Home from './routes/home/Home'
 import NotFound from './routes/404/404'
 import CV from './routes/cv/CV'
 import Projects from './routes/projects/Projects'
+import Contact from './routes/contact/Contact'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<Home />} />
         <Route path="/cv" element={<CV />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
 
         {/* Fallback route */}
         <Route path="*" element={<NotFound />} />

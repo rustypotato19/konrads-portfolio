@@ -63,7 +63,7 @@ export default function NotFound() {
     }
 
     setStatus("error");
-    setError("Couldn’t find a landscape image after several attempts.");
+    setError("Couldn't find a landscape image after several attempts.");
   }
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-linear-to-b from-black via-[#020f05] to-[#001a0a] text-green-200 flex items-center justify-center p-6">
+    <div className="min-h-screen w-full bg-linear-to-b from-black via-[#031406] to-[#003314] text-green-200 flex items-center justify-center p-6">
       <div className="w-full max-w-xl rounded-2xl border border-green-500/20 bg-black/60 backdrop-blur-xl p-6 shadow-2xl shadow-green-500/10">
         <div className="flex items-start justify-between gap-4">
           <div>

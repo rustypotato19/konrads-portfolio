@@ -10,7 +10,7 @@ export default function Home() {
   const windowWidth = window.innerWidth;
 
   return (
-    <div className="min-h-screen w-full bg-linear-to-b from-black via-[#020f05] to-[#001a0a] text-green-200">
+    <div className="min-h-screen w-full bg-linear-to-b from-black via-[#031406] to-[#003314] text-green-200">
       {/* container */}
       <div className="max-w-5xl mx-auto px-6 py-24">
         {/* site title */}

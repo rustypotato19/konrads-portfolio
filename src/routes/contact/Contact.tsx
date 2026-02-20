@@ -41,7 +41,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-linear-to-b from-black via-[#020f05] to-[#001a0a] text-green-200">
+    <div className="min-h-screen w-full bg-linear-to-b from-black via-[#031406] to-[#003314] text-green-200">
       <a
         href="/"
         className="fixed top-4 left-4 bg-linear-to-br from-green-700 to-green-900 text-green-200 px-4 py-2 rounded-lg hover:from-green-900 hover:to-green-700 transition-all duration-200 hover:scale-[102%] font-bold hover:cursor-pointer" aria-label="Go back to homepage"

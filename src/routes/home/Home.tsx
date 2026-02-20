@@ -53,24 +53,28 @@ export default function Home() {
               title="cv"
               description="experience, skills, and professional background"
               href="/cv"
+              aria-label="Button which takes you to Konrad's CV page"
             />
 
             <NavCard
               title="projects"
               description="things i've built, experiments, and technical work"
               href="/projects"
+              aria-label="Button which takes you to a page showcasing projects that Konrad has built"
             />
 
             {/* <NavCard
               title="research"
               description="academic work, writing, and longer technical explorations"
               href="/research"
+              aria-label="Button which takes you to a page showcasing research and writing that Konrad has done"
             /> */}
 
             <NavCard
               title="contact"
               description="get in touch, collaboration, or opportunities"
               href="/contact"
+              aria-label="Button which takes you to a contact page where you can get in touch with Konrad"
             />
 
             <NavCard
@@ -78,6 +82,7 @@ export default function Home() {
               description="code repositories and active development"
               href="https://github.com/rustypotato19"
               external
+              aria-label="Button which takes you to Konrad's GitHub profile"
             />
           </div>
         </section>

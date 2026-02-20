@@ -11,7 +11,6 @@ type Project = {
 };
 
 export default function Projects() {
-
   useEffect(() => {
     document.title = "Konrad's Projects";
     window.scrollTo(0, 0);
@@ -24,7 +23,8 @@ export default function Projects() {
     <div className="min-h-screen w-full bg-linear-to-b from-black via-[#020f05] to-[#001a0a] text-green-200">
       <a
         href="/"
-        className="fixed top-4 left-4 bg-linear-to-br from-green-700 to-green-900 text-green-200 px-4 py-2 rounded-lg hover:from-green-900 hover:to-green-700 transition-all duration-200 hover:scale-[102%] font-bold hover:cursor-pointer"
+        className="fixed top-4 left-4 bg-linear-to-br from-green-700 to-green-900 text-green-200 px-4 py-2 rounded-lg hover:from-green-900 hover:to-green-700 transition-all duration-200 hover:scale-[102%] font-bold hover:cursor-pointer z-50"
+        aria-label="Go back to homepage"
       >
         Home
       </a>
@@ -100,7 +100,7 @@ function ProjectCard({
         rounded-xl border border-green-500/20 bg-black/50 backdrop-blur
         p-6 transition-all duration-200
         hover:border-green-400 hover:bg-green-500/5
-        hover:shadow-lg hover:shadow-green-500/10
+        hover:shadow-lg hover:shadow-green-500/30
       `}
     >
       <h3
@@ -133,6 +133,7 @@ function ProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             className="text-green-400 hover:text-green-300 transition"
+            aria-label={`Link to GitHub repository for ${project.title}`}
           >
             github →
           </a>
@@ -144,6 +145,7 @@ function ProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             className="text-green-400 hover:text-green-300 transition"
+            aria-label={`Link to live version of ${project.title}`}
           >
             live →
           </a>

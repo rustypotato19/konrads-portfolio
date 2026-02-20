@@ -44,7 +44,7 @@ export default function Contact() {
     <div className="min-h-screen w-full bg-linear-to-b from-black via-[#020f05] to-[#001a0a] text-green-200">
       <a
         href="/"
-        className="fixed top-4 left-4 bg-linear-to-br from-green-700 to-green-900 text-green-200 px-4 py-2 rounded-lg hover:from-green-900 hover:to-green-700 transition-all duration-200 hover:scale-[102%] font-bold hover:cursor-pointer"
+        className="fixed top-4 left-4 bg-linear-to-br from-green-700 to-green-900 text-green-200 px-4 py-2 rounded-lg hover:from-green-900 hover:to-green-700 transition-all duration-200 hover:scale-[102%] font-bold hover:cursor-pointer" aria-label="Go back to homepage"
       >
         Home
       </a>
@@ -72,6 +72,7 @@ export default function Contact() {
                 <a
                   href="mailto:konradmitura8@gmail.com"
                   className="text-green-400 hover:text-green-300 transition"
+                  aria-label="Link to email Konrad"
                 >
                   konradmitura8@gmail.com
                 </a>
@@ -88,6 +89,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:text-green-300 transition"
+                  aria-label="Link to Konrad's GitHub profile"
                 >
                   github.com/rustypotato19
                 </a>
@@ -100,6 +102,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:text-green-300 transition"
+                  aria-label="Link to Konrad's LinkedIn profile"
                 >
                   Konrad Mitura
                 </a>

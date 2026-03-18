@@ -55,7 +55,7 @@ export default function Projects() {
         {/* Other Projects */}
         {others.length > 0 && (
           <Section title="other work">
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {others.map((project: Project, index: number) => (
                 <ProjectCard key={index} project={project} />
               ))}
@@ -97,32 +97,38 @@ function ProjectCard({
   return (
     <div
       className={`
-        rounded-xl border border-green-500/20 bg-black/50 backdrop-blur
+        sm:w-fit ${large && "sm:min-w-md"} max-w-full
+        flex flex-col justify-between
+        rounded-xl border ${large ? "border-green-500/80" : "border-green-500/20"} bg-black/50 backdrop-blur
         p-6 transition-all duration-200
         hover:border-green-400 hover:bg-green-500/5
         hover:shadow-lg hover:shadow-green-500/30
       `}
     >
-      <h3
-        className={`text-green-300 font-medium lowercase ${large ? "text-xl" : "text-lg"}`}
-      >
-        {project.title}
-      </h3>
+      <div>
+        <h3
+          className={`text-green-300 font-medium lowercase ${large ? "text-xl" : "text-md"}`}
+        >
+          {project.title}
+        </h3>
 
-      <p className="mt-3 text-green-300/80 lowercase leading-relaxed">
-        {project.description}
-      </p>
+        {large && (
+          <p className="mt-3 text-green-300/80 lowercase leading-relaxed">
+            {project.description}
+          </p>
+        )}
 
-      {/* Stack tags */}
-      <div className="mt-4 flex flex-wrap gap-2">
-        {project.stack.map((tech, index) => (
-          <span
-            key={index}
-            className="text-xs px-3 py-1 rounded-full border border-green-500/30 bg-green-500/10 text-green-300 lowercase"
-          >
-            {tech}
-          </span>
-        ))}
+        {/* Stack tags */}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.stack.map((tech, index) => (
+            <span
+              key={index}
+              className="text-xs px-3 py-1 rounded-full border border-green-500/30 bg-green-500/10 text-green-300 lowercase"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Links */}

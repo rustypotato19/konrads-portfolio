@@ -5,7 +5,7 @@
     "stack": ["react", "typescript", "tailwind", "nginx"],
     "github": "https://github.com/rustypotato19/konrads-portfolio",
     "live": "https://aboutkonrad.com",
-    "featured": true
+    "featured": false
   },
   {
     "title": "custom exponential number class",
@@ -13,6 +13,14 @@
     "stack": ["C++", "numerical methods"],
     "github": "https://github.com/rustypotato19/ExponentialNumberCpp",
     "live": "",
+    "featured": false
+  },
+  {
+    "title": "gamified environmental awareness platform",
+    "description": "research-backed interactive web application exploring gamification as a method of increasing environmental engagement.",
+    "stack": ["react", "express", "sql", "ux research"],
+    "github": "https://github.com/rustypotato19/gamification-experiment",
+    "live": "https://dissertation.aboutkonrad.com",
     "featured": true
   }
 ]

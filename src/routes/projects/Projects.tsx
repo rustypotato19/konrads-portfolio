@@ -81,7 +81,7 @@ interface SectionProps {
 function Section({ title, children }: SectionProps) {
   return (
     <section className="mb-16">
-      <h2 className="text-xl text-green-400 lowercase mb-6">{title}</h2>
+      <h2 className="text-xl text-green-400 lowercase mb-6">{`${title} ${title=="featured" ? "🌟" : ""}`}</h2>
       {children}
     </section>
   );
@@ -99,7 +99,9 @@ function ProjectCard({
       className={`
         sm:w-fit ${large && "sm:min-w-md"} max-w-full
         flex flex-col justify-between
-        rounded-xl border ${large ? "border-green-500/80" : "border-green-500/20"} bg-black/50 backdrop-blur
+        rounded-xl border 
+        ${large ? "border-green-500/80" : "border-green-500/20"} 
+        ${large ? "bg-green-900/20" : "bg-black/50"} backdrop-blur
         p-6 transition-all duration-200
         hover:border-green-400 hover:bg-green-500/5
         hover:shadow-lg hover:shadow-green-500/30

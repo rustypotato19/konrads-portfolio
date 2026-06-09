@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --p-green: #003314;
+  --s-green: #007c29;
+
+  --p-h-green: #00722e;
+  --s-h-green: #00b43c;
+}
+
+html {
+  overflow: none;
+  scroll-behavior: smooth;
+}
+
+div {
+  transition-property: all;
+  transition-timing-function: var(
+    --tw-ease,
+    var(--default-transition-timing-function) /* cubic-bezier(0.4, 0, 0.2, 1) */
+  );
+  transition-duration: var(
+    --tw-duration,
+    var(--default-transition-duration) /* 150ms */
+  );
+}
+
+button:hover {
+  cursor: pointer;
+}

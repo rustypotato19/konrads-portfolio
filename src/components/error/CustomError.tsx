@@ -81,7 +81,7 @@ export default function CustomError({
   return (
     <PageContainer>
       <div className="w-full h-full flex justify-center items-center text-white">
-        <div className="h-fit w-fit aspect-square flex flex-col justify-center items-center p-16 border-black border-2 rounded-[50px] bg-(--p-green)">
+        <div className="h-fit w-fit max-w-150 aspect-square flex flex-col justify-center items-center p-16 border-black border-2 rounded-[50px] bg-(--p-green)">
           <div className="flex flex-col items-start justify-start gap-2">
             <div className="flex flex-col gap-2">
               <h1 className="text-4xl font-extrabold tracking-tight text-(--s-h-green)">

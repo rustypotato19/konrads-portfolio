@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <PageContainer>
       <Header />
-      <h1>Hi!</h1>
+      <h1 className="text-white">Hi!</h1>
     </PageContainer>
   );
 }

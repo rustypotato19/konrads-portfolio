@@ -28,3 +28,9 @@ div {
 button:hover {
   cursor: pointer;
 }
+
+button:disabled {
+  opacity: 40%;
+  pointer-events: none;
+  cursor: not-allowed;
+}

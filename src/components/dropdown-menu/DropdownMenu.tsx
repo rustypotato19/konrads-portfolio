@@ -1,21 +1,63 @@
 // ORIGINAL SOURCE:: https://www.hover.dev/components/dropdown-menu
 // Modified for modularity and TypeScript friendliness
 
-import { type Dispatch, type SetStateAction, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import {
+  ChevronDown,
+  Grid2X2CheckIcon,
+  HomeIcon,
+  InfoIcon,
+  SendIcon,
+  TextSelectIcon,
+  UsersIcon,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import type { DropdownItem, DropdownType } from "../../types/types";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export default function DropdownMenu({ items }: DropdownType) {
-  const [open, setOpen] = useState(false);
+  const loc = useLocation();
+
+  const [open, setOpen] = useState<boolean>(false);
+
+  const [actionDisabled, setActionDisabled] = useState<boolean>(false);
+
+  const defaultItems: DropdownType = {
+    items: [
+      { text: "Home", Icon: HomeIcon, link: "/" },
+      { text: "About", Icon: InfoIcon, link: "/about" },
+      { text: "Projects", Icon: Grid2X2CheckIcon, link: "/projects" },
+      { text: "CV", Icon: TextSelectIcon, link: "/cv" },
+      { text: "Socials", Icon: UsersIcon, link: "/socials" },
+      { text: "Requuest", Icon: SendIcon, link: "/request" },
+    ],
+  };
+
+  useEffect(() => {
+    console.log(loc.pathname);
+  });
 
   return (
     <div className="flex items-center justify-center">
-      <motion.div animate={open ? "open" : "closed"} className="relative">
+      <div
+        className="w-screen h-screen absolute inset-0"
+        onClick={() => {
+          if (!actionDisabled) setOpen(false);
+        }}
+      />
+      <motion.div animate={open ? "open" : "closed"} className="relative z-10">
         <button
-          onClick={() => setOpen((pv) => !pv)}
-          className="flex items-center gap-2 px-3 py-2 rounded-md text-(--p-green) bg-(--s-green) hover:bg-(--s-h-green) transition-colors"
+          onClick={() => {
+            if (!actionDisabled) setOpen((x) => !x);
+            setTimeout(() => {
+              setActionDisabled(true);
+            }, 50);
+            setTimeout(() => {
+              setActionDisabled(false);
+            }, 1500);
+          }}
+          className="flex items-center gap-2 px-3 py-2 rounded-md text-(--p-green) bg-(--s-green) hover:bg-(--s-h-green) transition-all"
+          disabled={actionDisabled}
         >
           <motion.span variants={iconVariants}>
             <ChevronDown />
@@ -28,14 +70,25 @@ export default function DropdownMenu({ items }: DropdownType) {
           style={{ originY: "top", translateX: "-50%" }}
           className="flex flex-col gap-2 p-1 rounded-lg bg-(--s-green) shadow-xl absolute top-[120%] left-[50%] w-fit overflow-hidden"
         >
-          {items.map((item) => (
-            <Option
-              setOpen={setOpen}
-              Icon={item.Icon}
-              text={item.text}
-              link={item.link}
-            />
-          ))}
+          {items
+            ? items.map((item) => (
+                <Option
+                  setOpen={setOpen}
+                  Icon={item.Icon}
+                  text={item.text}
+                  link={item.link}
+                  hidden={item.link === loc.pathname}
+                />
+              ))
+            : defaultItems.items?.map((item) => (
+                <Option
+                  setOpen={setOpen}
+                  Icon={item.Icon}
+                  text={item.text}
+                  link={item.link}
+                  hidden={item.link === loc.pathname}
+                />
+              ))}
         </motion.ul>
       </motion.div>
     </div>
@@ -46,8 +99,12 @@ const Option = ({
   text,
   Icon,
   link,
+  hidden,
   setOpen,
-}: DropdownItem & { setOpen: Dispatch<SetStateAction<boolean>> }) => {
+}: DropdownItem & {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  hidden: boolean;
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -57,6 +114,7 @@ const Option = ({
         navigate(link);
         setOpen(false);
       }}
+      hidden={hidden}
       className="flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-(--p-green) text-(--p-green) hover:text-(--p-h-green) transition-colors cursor-pointer"
     >
       <motion.span variants={actionIconVariants}>

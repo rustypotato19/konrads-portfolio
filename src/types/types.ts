@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 
 export type DropdownType = {
-    items: DropdownItem[];
+    items?: DropdownItem[];
 }
 
 export type DropdownItem = {

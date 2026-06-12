@@ -1,33 +1,38 @@
-import {
-  Grid2X2CheckIcon,
-  HomeIcon,
-  InfoIcon,
-  TextSelectIcon,
-  UsersIcon,
-} from "lucide-react";
-import type { DropdownType } from "../../types/types";
 import DropdownMenu from "../dropdown-menu/DropdownMenu";
+import { useDisplayContext } from "../../contexts/display/displayContext";
 
 export default function Header() {
-  const dropdownItems: DropdownType = {
-    items: [
-      { text: "Home", Icon: HomeIcon, link: "/" },
-      { text: "About", Icon: InfoIcon, link: "/about" },
-      { text: "Projects", Icon: Grid2X2CheckIcon, link: "/projects" },
-      { text: "CV", Icon: TextSelectIcon, link: "/cv" },
-      { text: "Socials", Icon: UsersIcon, link: "/socials" },
-    ],
-  };
+  const { isSmallScreen } = useDisplayContext();
 
+  // mobile
+  if (isSmallScreen) {
+    return (
+      <header className="w-full h-20 flex flex-row gap-3 p-4">
+        <div className="h-full flex items-center justify-between">
+          <div className="text-2xl font-bold flex">
+            <span className="text-(--s-green)">aboutkonrad</span>
+            <span className="text-(--p-green)">.com</span>
+          </div>
+        </div>
+
+        <div className="w-full h-full flex items-center justify-end text-white">
+          <DropdownMenu />
+        </div>
+      </header>
+    );
+  }
+
+  // desktop
   return (
-    <div className="w-2/3 h-fit flex justify-between items-end p-10 mx-auto">
-      <p className="text-5xl font-bold flex">
-        <p className="text-(--s-green)">aboutkonrad</p>
-        <p className="text-(--p-green)">.com</p>
-      </p>
-      <div className="text-white">
-        <DropdownMenu items={dropdownItems.items} />
+    <header className="w-2/3 h-fit flex justify-between items-end p-10 mx-auto">
+      <div className="text-5xl font-bold flex">
+        <span className="text-(--s-green)">aboutkonrad</span>
+        <span className="text-(--p-green)">.com</span>
       </div>
-    </div>
+
+      <div className="text-white">
+        <DropdownMenu />
+      </div>
+    </header>
   );
 }

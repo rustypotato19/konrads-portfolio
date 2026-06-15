@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import type { IconType } from "react-icons";
 
 export type DropdownType = {
     items?: DropdownItem[];
@@ -17,6 +18,6 @@ export type CardType = {
 export type CardItem = {
     title: string;
     subtitle: string;
-    Icon: LucideIcon;
+    Icon: LucideIcon | IconType;
     link: string;
 };

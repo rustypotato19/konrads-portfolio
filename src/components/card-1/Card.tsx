@@ -6,10 +6,10 @@ import type { CardItem, CardType } from "../../types/types";
 
 export default function Cards({ items }: CardType) {
   return (
-    <div className="p-4">
+    <div className="mt-4 w-full">
       <p className="text-xl font-semibold mb-4 text-(--s-h-green)">Socials</p>
 
-      <div className="flex gap-4">
+      <div className="flex flex-row max-w-full flex-wrap gap-4">
         {items.map((item) => (
           <Card
             key={item.title}
@@ -52,39 +52,46 @@ function Card({ title, subtitle, Icon, link }: CardItem) {
         "
       />
 
-      <Icon
-        className="
-          absolute z-10 -top-12 -right-12
-          text-9xl
-          text-(--s-green)/20
-          group-hover:text-(--p-green)/20
-          group-hover:rotate-12
-          transition-all duration-300
-        "
-      />
+      {/* BG ICON */}
 
       <Icon
         className="
-          mb-3 text-2xl
-          text-(--s-h-green)
-          group-hover:text-(--p-green)
-          transition-colors
-          relative z-10 duration-300
-        "
+            absolute z-10 -top-12 -right-12
+            text-9xl
+            text-(--s-green)/20
+            group-hover:text-(--p-green)/20
+            group-hover:rotate-12
+            transition-all duration-300
+          "
       />
 
-      <h3
-        className="
-          font-semibold text-lg
-          text-(--s-h-green)
-          group-hover:text-(--p-green)
-          relative z-10
-          duration-300
-        "
-      >
-        {title}
-      </h3>
+      <div className="flex gap-2 justify-start">
+        {/* Small Icon */}
+        <Icon
+          className="
+            mb-3 text-2xl
+            text-(--s-h-green)
+            group-hover:text-(--p-green)
+            transition-colors
+            relative z-10 duration-300
+          "
+        />
 
+        {/* Title */}
+        <h3
+          className="
+            font-semibold text-lg
+            text-(--s-h-green)
+            group-hover:text-(--p-green)
+            relative z-10
+            duration-300
+          "
+        >
+          {title}
+        </h3>
+      </div>
+
+      {/* Subtitle */}
       <p
         className="
           text-(--t-h-green)/40

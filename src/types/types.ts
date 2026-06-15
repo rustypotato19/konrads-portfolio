@@ -9,3 +9,14 @@ export type DropdownItem = {
     text: string;
     link: string;
 };
+
+export type CardType = {
+    items: CardItem[];
+}
+
+export type CardItem = {
+    title: string;
+    subtitle: string;
+    Icon: LucideIcon;
+    link: string;
+};

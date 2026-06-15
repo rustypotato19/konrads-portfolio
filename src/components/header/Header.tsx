@@ -1,5 +1,5 @@
 import DropdownMenu from "../dropdown-menu/DropdownMenu";
-import { useDisplayContext } from "../../contexts/display/displayContext";
+import { useDisplayContext } from "../../contexts/display/DisplayContext";
 
 export default function Header() {
   const { isSmallScreen } = useDisplayContext();

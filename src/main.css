@@ -3,9 +3,11 @@
 :root {
   --p-green: #003314;
   --s-green: #007c29;
+  --t-green: #00d146;
 
   --p-h-green: #00722e;
   --s-h-green: #00b43c;
+  --t-h-green: #00f853;
 }
 
 html {

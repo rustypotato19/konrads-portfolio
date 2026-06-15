@@ -1,4 +1,5 @@
 // ORIGINAL SOURCE:: https://www.hover.dev/components/dropdown-menu
+// Last Accessed 15th June 2026
 // Modified for modularity and TypeScript friendliness
 
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
@@ -9,11 +10,11 @@ import {
   InfoIcon,
   SendIcon,
   TextSelectIcon,
-  UsersIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { DropdownItem, DropdownType } from "../../types/types";
 import { useLocation, useNavigate } from "react-router";
+import { useDisplayContext } from "../../contexts/display/DisplayContext";
 
 export default function DropdownMenu({ items }: DropdownType) {
   const loc = useLocation();
@@ -22,13 +23,14 @@ export default function DropdownMenu({ items }: DropdownType) {
 
   const [actionDisabled, setActionDisabled] = useState<boolean>(false);
 
+  const { isSmallScreen } = useDisplayContext();
+
   const defaultItems: DropdownType = {
     items: [
       { text: "Home", Icon: HomeIcon, link: "/" },
       { text: "About", Icon: InfoIcon, link: "/about" },
       { text: "Projects", Icon: Grid2X2CheckIcon, link: "/projects" },
       { text: "CV", Icon: TextSelectIcon, link: "/cv" },
-      { text: "Socials", Icon: UsersIcon, link: "/socials" },
       { text: "Requuest", Icon: SendIcon, link: "/request" },
     ],
   };
@@ -68,7 +70,7 @@ export default function DropdownMenu({ items }: DropdownType) {
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: "top", translateX: "-50%" }}
-          className="flex flex-col gap-2 p-1 rounded-lg bg-(--s-green) shadow-xl absolute top-[120%] left-[50%] w-fit overflow-hidden"
+          className={`flex flex-col gap-2 p-1 rounded-lg bg-(--s-green) shadow-xl absolute top-[120%] left-[50%] w-fit overflow-hidden ${isSmallScreen && "-translate-x-7.5"}`}
         >
           {items
             ? items.map((item) => (

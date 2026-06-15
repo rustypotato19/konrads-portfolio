@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import "./main.css";
 import Home from "./routes/home/Home";
 import CustomError from "./components/error/CustomError";
-import DisplayContextProvider from "./contexts/display/displayContextProvider";
+import DisplayContextProvider from "./contexts/display/DisplayContextProvider";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

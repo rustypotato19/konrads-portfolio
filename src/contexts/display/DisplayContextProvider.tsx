@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { DisplayContext } from "./displayContext";
+import { DisplayContext } from "./DisplayContext";
 import PageContainer from "../../components/PageContainer";
 
 export default function DisplayContextProvider({

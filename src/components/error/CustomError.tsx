@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import PageContainer from "../PageContainer";
 import { useNavigate } from "react-router";
 
@@ -29,6 +29,8 @@ export default function CustomError({
   const navigate = useNavigate();
 
   const [catImageUrl, setCatImageUrl] = useState<string>("");
+  const catImageUrlRef = useRef<string>("");
+
   const [status, setStatus] = useState<Status>("idle");
   const [attempts, setAttempts] = useState<number>(0);
   const [error, setError] = useState<string>("");
@@ -44,6 +46,7 @@ export default function CustomError({
       try {
         const res = await fetch(CAT_API, { cache: "no-store" });
         if (!res.ok) throw new Error(`API error: ${res.status}`);
+
         const data = await res.json();
 
         // Cat API returns an array
@@ -51,10 +54,16 @@ export default function CustomError({
         const { url, w, h } = await preloadImage(image.url);
 
         if (w >= h) {
-          if (catImageUrl === "") {
-            setCatImageUrl(url);
-            console.log("set image " + url);
+          // Skip if this is the image currently being displayed
+          if (url === catImageUrlRef.current) {
+            continue;
           }
+
+          catImageUrlRef.current = url;
+          setCatImageUrl(url);
+
+          console.log("set image " + url);
+
           setStatus("ready");
           return;
         }
@@ -71,7 +80,7 @@ export default function CustomError({
     }
 
     setStatus("error");
-    setError("Couldn't find a landscape image after several attempts.");
+    setError("Couldn't find a new landscape image after several attempts.");
   }
 
   useEffect(() => {
@@ -79,7 +88,6 @@ export default function CustomError({
       fetchLandscapeCat();
     }
     fetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -108,7 +116,10 @@ export default function CustomError({
                   Searching… ({attempts}/{MAX_ATTEMPTS})
                 </span>
               ) : (
-                <span>source: thecatapi.com</span>
+                <span>
+                  ({attempts}) total attempt{attempts === 1 ? "" : "s"}, source:
+                  thecatapi.com
+                </span>
               )}
             </div>
           </div>

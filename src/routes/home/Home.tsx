@@ -6,6 +6,12 @@ import { BsEnvelope, BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import getRandom from "../../utils/getRandom";
 import SocialCards from "../../components/cards/social-card/SocialCard";
 import ExploreCards from "../../components/cards/explore-card/ExploreCard";
+import {
+  Grid2X2CheckIcon,
+  InfoIcon,
+  SendIcon,
+  TextSelectIcon,
+} from "lucide-react";
 
 export default function Home() {
   const { isSmallScreen } = useDisplayContext();
@@ -49,21 +55,25 @@ export default function Home() {
         title: "About Me",
         link: "/about",
         isMobile: isSmallScreen,
+        icon: InfoIcon,
       },
       {
         title: "My Projects",
         link: "/projects",
         isMobile: isSmallScreen,
+        icon: Grid2X2CheckIcon,
       },
       {
         title: "My Experience",
         link: "/cv",
         isMobile: isSmallScreen,
+        icon: TextSelectIcon,
       },
       {
         title: "Contact Me",
         link: "/contact",
         isMobile: isSmallScreen,
+        icon: SendIcon,
       },
     ],
   };

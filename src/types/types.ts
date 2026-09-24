@@ -31,4 +31,5 @@ export type ExploreCardItem = {
     title: string;
     link: string;
     isMobile: boolean | null;
+    icon: LucideIcon | IconType;
 }

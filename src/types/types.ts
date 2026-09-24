@@ -20,4 +20,15 @@ export type CardItem = {
     subtitle: string;
     Icon: LucideIcon | IconType;
     link: string;
+    isMobile: boolean | null;
 };
+
+export type ExploreCardType = {
+    items: ExploreCardItem[];
+}
+
+export type ExploreCardItem = {
+    title: string;
+    link: string;
+    isMobile: boolean | null;
+}

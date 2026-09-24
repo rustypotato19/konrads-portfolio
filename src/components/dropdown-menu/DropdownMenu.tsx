@@ -2,7 +2,7 @@
 // Last Accessed 15th June 2026
 // Modified for modularity and TypeScript friendliness
 
-import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import { type Dispatch, type SetStateAction, useState } from "react";
 import {
   ChevronDown,
   Grid2X2CheckIcon,
@@ -30,14 +30,10 @@ export default function DropdownMenu({ items }: DropdownType) {
       { text: "Home", Icon: HomeIcon, link: "/" },
       { text: "About", Icon: InfoIcon, link: "/about" },
       { text: "Projects", Icon: Grid2X2CheckIcon, link: "/projects" },
-      { text: "CV", Icon: TextSelectIcon, link: "/cv" },
-      { text: "Requuest", Icon: SendIcon, link: "/request" },
+      { text: "Experience", Icon: TextSelectIcon, link: "/cv" },
+      { text: "Contact", Icon: SendIcon, link: "/contact" },
     ],
   };
-
-  useEffect(() => {
-    console.log(loc.pathname);
-  });
 
   return (
     <div className="flex items-center justify-center">
@@ -75,6 +71,7 @@ export default function DropdownMenu({ items }: DropdownType) {
           {items
             ? items.map((item) => (
                 <Option
+                  key={item.link}
                   setOpen={setOpen}
                   Icon={item.Icon}
                   text={item.text}
@@ -84,6 +81,7 @@ export default function DropdownMenu({ items }: DropdownType) {
               ))
             : defaultItems.items?.map((item) => (
                 <Option
+                  key={item.link}
                   setOpen={setOpen}
                   Icon={item.Icon}
                   text={item.text}

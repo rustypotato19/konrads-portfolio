@@ -13,6 +13,14 @@
 html {
   overflow: none;
   scroll-behavior: smooth;
+  background-image: linear-gradient(180deg, var(--p-green), black);
+}
+
+@media screen and (width <= 980px) {
+  html {
+    overflow-y: auto;
+    overflow-x: none;
+  }
 }
 
 div {

@@ -6,6 +6,10 @@ import "./main.css";
 import Home from "./routes/home/Home";
 import CustomError from "./components/error/CustomError";
 import DisplayContextProvider from "./contexts/display/DisplayContextProvider";
+import About from "./routes/about/About";
+import Projects from "./routes/projects/Projects";
+import CV from "./routes/cv/CV";
+import Contact from "./routes/contact/Contact";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -13,6 +17,10 @@ createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="cv" element={<CV />} />
+          <Route path="contact" element={<Contact />} />
 
           <Route
             path="*"

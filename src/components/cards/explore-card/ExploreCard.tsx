@@ -1,3 +1,7 @@
+// ORIGINAL SOURCE:: https://www.hover.dev/components/cards
+// Last Accessed 15th June 2026
+// Modified for modularity and TypeScript friendliness
+
 import { useNavigate } from "react-router";
 import type { ExploreCardItem, ExploreCardType } from "../../../types/types";
 

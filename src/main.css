@@ -11,23 +11,10 @@
 }
 
 html {
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   background-image: linear-gradient(180deg, var(--p-green), black);
-}
-
-@media screen and (-webkit-device-pixel-ratio > 1) {
-  html {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-}
-
-@media screen and (width <= 980px) {
-  html {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
 }
 
 div {

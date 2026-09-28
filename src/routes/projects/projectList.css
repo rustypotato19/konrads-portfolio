@@ -1,0 +1,54 @@
+select,
+select::picker(select) {
+  appearance: base-select;
+}
+
+select {
+  border: 1px solid color-mix(in srgb, var(--s-green) 40%, transparent);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--p-green) 65%, var(--s-green));
+  color: var(--t-h-green);
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+select:hover {
+  border-color: color-mix(in srgb, var(--s-h-green) 60%, transparent);
+}
+
+select:focus-visible {
+  border-color: var(--s-h-green);
+  outline: none;
+}
+
+select::picker(select) {
+  border: 1px solid color-mix(in srgb, var(--s-green) 45%, transparent);
+  border-radius: 0.5rem;
+  background: var(--p-green);
+  color: var(--t-h-green);
+  padding: 0.35rem;
+  box-shadow:
+    0 12px 30px color-mix(in srgb, var(--s-green) 25%, transparent),
+    0 4px 10px color-mix(in srgb, black 20%, transparent);
+}
+
+select option {
+  border-radius: 0.35rem;
+  color: var(--t-h-green);
+  background: var(--p-green);
+  padding: 0.65rem 0.75rem;
+}
+
+select option:hover {
+  background: color-mix(in srgb, var(--s-green) 20%, var(--p-green));
+  color: var(--s-h-green);
+}
+
+select option:checked {
+  background: color-mix(in srgb, var(--s-green) 30%, var(--p-green));
+  color: var(--s-h-green);
+  font-weight: 500;
+}

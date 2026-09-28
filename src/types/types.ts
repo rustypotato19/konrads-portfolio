@@ -33,3 +33,14 @@ export type ExploreCardItem = {
     isMobile: boolean | null;
     icon: LucideIcon | IconType;
 }
+
+export type Project = {
+    title: string;
+    description: string;
+    stack: string[];
+    primary_lang: string;
+    keywords: string[];
+    github?: string;
+    live?: string;
+    featured?: boolean;
+};

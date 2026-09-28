@@ -1,13 +1,4 @@
-export type Project = {
-  title: string;
-  description: string;
-  stack: string[];
-  primary_lang: string;
-  keywords: string[];
-  github?: string;
-  live?: string;
-  featured?: boolean;
-};
+import type { Project } from "../../types/types";
 
 export const projectsData: Project[] = [
   {
